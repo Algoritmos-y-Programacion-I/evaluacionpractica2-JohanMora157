@@ -22,6 +22,13 @@ public class Pillar {
      */
     public boolean registerProject(Project newProject) {
 
+        for (int i = 0; i < projects.length; i++) {
+            if (projects[i] == null) {
+                projects[i] = newProject;
+                return true;
+            }
+        }
+
         return false;
     }
 
@@ -35,8 +42,22 @@ public class Pillar {
 
         String list = "";
 
+        for (int i = 0; i < projects.length; i++) {
+            if (projects[i] != null) {
+                list += projects[i].toString() + "\n";
+            }
+
+        }
+
         return list;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
 }
